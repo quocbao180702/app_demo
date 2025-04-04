@@ -1,0 +1,182 @@
+﻿@EmployeeManagement_HostAddress = http://localhost:5083
+
+GET {{EmployeeManagement_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+POST {{EmployeeManagement_HostAddress}}/api/Department/create-department
+Accept: application/json
+Content-Type: application/json
+{
+  "MaBoPhan": "NS-001",
+  "TenBoPhan": "Phòng nhân sự"
+}
+
+###
+
+###
+GET {{EmployeeManagement_HostAddress}}/api/Department/get-department
+Accept: application/json
+###
+//call api create user with token bearer
+
+POST {{EmployeeManagement_HostAddress}}/api/User/create-user
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiZGFuZ3F1b2NiYW8iLCJleHAiOjE3NDM1MTM4OTUsImlzcyI6Ik15QXdlc29tZUFwcCIsImF1ZCI6Ik15QXdlc29tZUF1ZGllbmNlIn0.1FFNhC5qpqWK533ZdvWQdAE2ADFsH1n_KznAQGnr5gbnetPzvvR6qNHJWZI07ywnSBz9xBNA1O_u6wxm0CRlpg
+  "Name": "Đặng Quốc Bảo",
+  "Email": "tran@gmail.com",
+  "Password": "123456",
+  "UserName": "nguyenquocthien"
+}
+
+
+
+###
+
+// call api update user
+PUT {{EmployeeManagement_HostAddress}}/api/User/update-user
+Accept: application/json
+Content-Type: application/json
+{
+  "Name": "Đặng Quốc Bảo",
+  "Email": "dqbao_updated@gmail.com",
+  "Password": "123456",
+  "UserName": "dqbao"
+}
+
+###
+
+// call api get all users
+GET {{EmployeeManagement_HostAddress}}/api/User/get-all-users
+Accept: application/json
+
+###
+
+// call api delete user
+DELETE {{EmployeeManagement_HostAddress}}/api/User/delete-user/2
+Accept: application/json
+
+###
+
+// call api login
+POST {{EmployeeManagement_HostAddress}}/api/Auth/login
+Accept: application/json
+Content-Type: application/json
+{
+  "Username": "dangquocbao",
+  "Password": "123456"
+}
+
+###
+
+POST {{EmployeeManagement_HostAddress}}/api/User/delete-user
+Accept: application/json
+Content-Type: application/json
+{
+  "Id": 1
+}
+
+###
+
+Post {{EmployeeManagement_HostAddress}}/api/User/get-user
+Accept: application/json
+Content-Type: application/json
+{
+  "Id": 3
+}
+
+
+###
+POST {{EmployeeManagement_HostAddress}}/api/Employee/create-employee
+Accept: application/json
+Content-Type: application/json
+{
+   "MaNV": "NHANVIEN02",
+   "TenNV": "Nguyễn Quốc Thiện",
+   "GioiTinh": true,
+   "NgaySinh": "2002-03-15",
+   "MaBoPhan": 1,
+   "MucLuong": 6000000
+}
+
+
+###
+
+POST {{EmployeeManagement_HostAddress}}/api/Employee/update-employee
+Accept: application/json
+Content-Type: application/json
+{
+    "Id": 2,
+   "MaNV": "NHANVIEN02",
+   "TenNV": "Nguyễn Quốc Bảo",
+   "GioiTinh": true,
+   "NgaySinh": "2002-03-15",
+   "MaBoPhan": 1,
+   "MucLuong": 6700000
+}
+
+###
+Post {{EmployeeManagement_HostAddress}}/api/Employee/get-all-employees
+Accept: application/json
+Content-Type: application/json
+{
+}
+
+
+###
+POST {{EmployeeManagement_HostAddress}}/api/Employee/get-employee-by-id
+Accept: application/json
+Content-Type: application/json
+{
+  "id": 2
+}
+
+
+### 
+POST {{EmployeeManagement_HostAddress}}/api/Task/create-task
+Accept: application/json
+Content-Type: application/json
+{
+  "Name": "Task 1",
+  "Description": "Nhiệm vụ 1",
+  "EmployeeId": null,
+  "Status": null,
+  "StartDate": "2025-04-04T08:30:00",
+  "EndDate": "2025-04-04T17:30:00"
+}
+
+###
+POST {{EmployeeManagement_HostAddress}}/api/Task/update-task
+Accept: application/json
+Content-Type: application/json
+{
+  "Id": 5,
+  "Name": "Nhiệm vụ 5",
+  "Description": "Nhiệm vụ số 5",
+  "EmployeeId": null,
+  "Status": false,
+  "StartDate": "2025-04-04T12:30:00",
+   "EndDate": "2025-04-04T18:00:00"
+}
+
+###
+
+
+GET {{EmployeeManagement_HostAddress}}/api/Task/get-all-tasks
+Accept: application/json
+
+###
+POST {{EmployeeManagement_HostAddress}}/api/Task/change-status-task
+Accept: application/json
+Content-Type: application/json
+{
+  "Id": 4,
+  "Name": null,
+  "Description": null,
+  "EmployeeId": null,
+  "Status": true,
+  "StartDate": null,
+  "EndDate": null
+}
